@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
 const buttons =['30分', '60分', '90分', '120分', '150分'];
 const buttons2 =['180分', '210分', '240分', '270分', '300分'];
 
-const Time = (date: { navigation: { navigate: (arg0: string) => void; }; }) => (
+export default function Time (date: { navigation: { navigate: (arg0: string) => void; }; }) {
+    return(
     <View style={styles.container}>
         <View style={styles.image}>
             <Image
@@ -67,6 +68,4 @@ const Time = (date: { navigation: { navigate: (arg0: string) => void; }; }) => (
         />
         </View>
     </View>
-);
-
-export default Time;
+)};

@@ -10,8 +10,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const Seat = (date: { navigation: { navigate: (arg0: string) => void; }; }) => {
-    const [modalVisible, setModalVisible] = useState(false);
+export default function Seat (date: { navigation: { navigate: (arg0: string) => void; };}) {
     return(
     <View style={styles.container}>
         <Button
@@ -32,5 +31,3 @@ const Seat = (date: { navigation: { navigate: (arg0: string) => void; }; }) => {
         />
     </View>
 )};
-
-export default Seat;

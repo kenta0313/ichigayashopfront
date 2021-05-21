@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
 
 });
 
-const Home = (date: { navigation: { navigate: (arg0: string) => void; }; }) => (
+export default function Accounting (date: { navigation: { navigate: (arg0: string) => void; }; }) {
+    return(
     <View style={styles.container}>
         <Text style={styles.title}>合計金額600円</Text>
         <Button
@@ -37,6 +38,5 @@ const Home = (date: { navigation: { navigate: (arg0: string) => void; }; }) => (
             }}
         />
     </View>
-);
+)};
 
-export default Home;
