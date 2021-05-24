@@ -15,7 +15,7 @@ const Stack = createStackNavigator();
 const RootStack = () => {
     return (
         <Stack.Navigator
-            initialRouteName="Home"　//最初の画面
+            initialRouteName="Home"
             screenOptions={{
                 headerStyle: {
                     backgroundColor: "#69b076",

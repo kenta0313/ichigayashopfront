@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, View, Text} from "react-native";
+import {StyleSheet, View, Text } from "react-native";
 import { Button } from 'react-native-elements';
 
 const styles = StyleSheet.create({
@@ -10,12 +10,14 @@ const styles = StyleSheet.create({
     },
     title : {
         fontSize: 80,
-        marginTop:150
+        marginTop:150,
     },
-
-
-
+    image: {
+        width: "100%",
+        height: "100%",
+    }
 });
+
 
 export default function Home (date: { navigation: { navigate: (arg0: string) => void; }; }) {
     return(

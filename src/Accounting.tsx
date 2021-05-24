@@ -39,4 +39,3 @@ export default function Accounting (date: { navigation: { navigate: (arg0: strin
         />
     </View>
 )};
-
