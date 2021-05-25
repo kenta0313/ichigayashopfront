@@ -1,6 +1,6 @@
 import React from "react";
 import {StyleSheet, View, Text } from "react-native";
-import { Button } from 'react-native-elements';
+import Movebutton from "../components/Movebutton";
 
 const styles = StyleSheet.create({
     container: {
@@ -12,10 +12,6 @@ const styles = StyleSheet.create({
         fontSize: 80,
         marginTop:150,
     },
-    image: {
-        width: "100%",
-        height: "100%",
-    }
 });
 
 
@@ -23,17 +19,7 @@ export default function Home (date: { navigation: { navigate: (arg0: string) => 
     return(
     <View style={styles.container}>
         <Text style={styles.title}>いらっしゃいませ！</Text>
-        <Button
-            titleStyle={{
-                color: "white",
-                fontSize: 50,
-            }}
-            buttonStyle={{
-                height: 110,
-                width: 400,
-                marginTop: 40,
-                borderRadius: 20,
-            }}
+        <Movebutton
             title="席を選ぶ"
             onPress={() => {
                 date.navigation.navigate("席を選ぶ");
