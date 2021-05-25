@@ -1,7 +1,5 @@
 import React from "react";
 import {StyleSheet, View, Text} from "react-native";
-import { Button } from 'react-native-elements';
-import Backbutton from "../components/Backbutton";
 import Movebutton from "../components/Movebutton";
 
 const styles = StyleSheet.create({
@@ -25,11 +23,6 @@ export default function Accounting (date: { navigation: { navigate: (arg0: strin
         <Text style={styles.title}>合計金額600円</Text>
         <Movebutton
             title="ホームへ"
-            onPress={() => {
-                date.navigation.navigate("Home");
-            }}
-        />
-        <Backbutton
             onPress={() => {
                 date.navigation.navigate("Home");
             }}
