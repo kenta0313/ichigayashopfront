@@ -9,19 +9,19 @@ interface Backbuttonprops {
 export default function Backbutton(props: Backbuttonprops) {
     return (
         <Button
-                title="戻る"
-                titleStyle={{
-                    color: "white",
-                    fontSize: 50,
-                }}
-                buttonStyle={{
-                    height: 110,
-                    width: 260,
-                    borderRadius: 20,
-                    backgroundColor: "#ff5622"
+            title="戻る"
+            titleStyle={{
+                color: "white",
+                fontSize: 50,
+            }}
+            buttonStyle={{
+                height: 110,
+                width: 260,
+                borderRadius: 20,
+                backgroundColor: "#ff5622"
 
-                }}
-                onPress={props.onPress}
-            />
+            }}
+            onPress={props.onPress}
+        />
     )
 }

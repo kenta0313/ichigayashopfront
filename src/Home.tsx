@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: "center"
     },
-    title : {
+    title: {
         fontSize: 80,
         marginTop:150,
     },

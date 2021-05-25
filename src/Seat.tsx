@@ -36,7 +36,7 @@ export default function Seat (date: { navigation: { navigate: (arg0: string) => 
                     source={image}
                     style={{ width: 400, height: 350}}
                 />
-                <Text　style={styles.cardtitle}>600円(税込)/時間</Text>
+                <Text style={styles.cardtitle}>600円(税込)/時間</Text>
                 <Movebutton
                     title="テーブル席"
                     onPress={() => {
