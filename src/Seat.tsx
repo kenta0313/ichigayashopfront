@@ -40,7 +40,7 @@ export default function Seat (date: { navigation: { navigate: (arg0: string) => 
                 <Movebutton
                     title="テーブル席"
                     onPress={() => {
-                        date.navigation.navigate("時間を選択");
+                        date.navigation.navigate("テーブル席");
                     }}
                 />
             </Card>
@@ -56,7 +56,7 @@ export default function Seat (date: { navigation: { navigate: (arg0: string) => 
                 <Movebutton
                     title="個室席"
                     onPress={() => {
-                        date.navigation.navigate("時間を選択");
+                        date.navigation.navigate("個室席");
                     }}
                 />
             </Card>

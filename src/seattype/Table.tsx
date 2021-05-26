@@ -1,9 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
-import {StyleSheet, View, Text, Image} from "react-native";
-import { Button, ButtonGroup } from 'react-native-elements';
-import Backbutton from "../components/Backbutton";
-import Movebutton from "../components/Movebutton";
-
+import {StyleSheet, View, Text, Image, TextStyle, StyleProp} from "react-native";
+import { ButtonGroup } from 'react-native-elements';
+import Backbutton from "../../components/Backbutton";
+import Movebutton from "../../components/Movebutton";
 
 const styles = StyleSheet.create({
     container: {
@@ -27,6 +26,9 @@ const styles = StyleSheet.create({
         marginLeft: 30,
         marginBottom: 10
     },
+    button :{
+        marginLeft:100
+    },
     buttongroup: {
         height: 100,
         marginBottom: 20
@@ -37,12 +39,12 @@ const styles = StyleSheet.create({
         textAlign: "center"
     }
 });
+
 const numbers = ['1人', '2人']
 const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分', '270分', '300分', '1日'];
-const image = require('../public/image/テーブル席.jpg');
+const image = require('../../public/image/テーブル席.jpg');
 
-
-export default function Time (date: { navigation: { navigate: (arg0: string) => void; }; }) {
+export default function Table (date: { navigation: any; }) {
     const [number, setNumber] = useState<number>();
     const PlessNumber = useCallback(
         (index) => {
@@ -103,17 +105,21 @@ export default function Time (date: { navigation: { navigate: (arg0: string) => 
 
             {(number !== undefined) && (time !== undefined) ?
                 <Movebutton
+                    style={styles.button}
                     title="お会計へ"
                     onPress={() => {
-                        date.navigation.navigate("お会計");
+                        date.navigation.navigate("お会計",
+                            {
+                                total: total,
+                                seattype: 'テーブル席'
+                            }
+                        );
                     }}
                 />:
                 <Movebutton
                     disabled
+                    style={styles.button}
                     title="お会計へ"
-                    onPress={() => {
-                        alert()
-                    }}
                 />
             }
         </View>

@@ -1,10 +1,12 @@
 import React from "react";
+import { StyleProp, ViewStyle } from "react-native";
 import { Button } from 'react-native-elements';
 
 interface Movebuttonprops {
+    style?: StyleProp<ViewStyle>;
     disabled?: boolean | undefined;
     title: string;
-    onPress: () => void;
+    onPress?: () => void;
 }
 
 export default function Movebutton(props: Movebuttonprops) {
@@ -23,6 +25,7 @@ export default function Movebutton(props: Movebuttonprops) {
             title={props.title}
             onPress={props.onPress}
             disabled={props.disabled}
+            style={props.style}
         />
     )
 }

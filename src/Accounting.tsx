@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {StyleSheet, View, Text} from "react-native";
 import Movebutton from "../components/Movebutton";
 
@@ -9,18 +9,23 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     title: {
-        fontSize: 80,
+        fontSize: 70,
         marginTop:150
     },
-
-
-
+    total: {
+        fontSize: 80,
+        marginTop: 20
+    }
 });
 
-export default function Accounting (date: { navigation: { navigate: (arg0: string) => void; }; }) {
+export default function Accounting (date: { navigation: { navigate: (arg0: string) => void; }; route: { params: { total: any; seattype: any }; } }) {
+    const {total} = date.route.params;
+    const {seattype} = date.route.params;
+
     return(
     <View style={styles.container}>
-        <Text style={styles.title}>合計金額600円</Text>
+        <Text  style={styles.title}>{seattype}</Text>
+        <Text style={styles.total}>合計金額{total}円</Text>
         <Movebutton
             title="ホームへ"
             onPress={() => {
