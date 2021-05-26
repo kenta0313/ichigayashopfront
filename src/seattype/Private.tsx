@@ -44,7 +44,7 @@ const numbers = ['1人', '2人']
 const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分', '270分', '300分', '1日'];
 const image = require('../../public/image/テーブル席.jpg');
 
-export default function Private (date: { navigation: any; }) {
+export default function Private (date: { navigation: { navigate: (arg0: string, arg1?: { total: number; seattype: string; } | undefined) => void; }; }) {
     const [number, setNumber] = useState<number>();
     const PlessNumber = useCallback(
         (index) => {
