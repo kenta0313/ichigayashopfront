@@ -40,18 +40,10 @@ const styles = StyleSheet.create({
     }
 });
 
-const numbers = ['1人', '2人']
 const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分', '270分', '300分', '1日'];
 const image = require('../../public/image/テーブル席.jpg');
 
 export default function Private (date: { navigation: { navigate: (arg0: string, arg1?: { total: number; seattype: string; } | undefined) => void; }; }) {
-    const [number, setNumber] = useState<number>();
-    const PlessNumber = useCallback(
-        (index) => {
-            setNumber(index);
-        },
-        [],
-    );
     const [time, setTime] = useState<number>();
     const PlessTime = useCallback(
         (index) => {
@@ -61,8 +53,8 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
     );
     const [total, setTotal] = useState(0);
     useEffect(() => {
-        if((number !== undefined) && (time !== undefined)){
-            return setTotal((number + 1) * ((time + 1) * 300));
+        if((time !== undefined)){
+            return setTotal(((time + 1) * 300));
         }
     })
 
@@ -81,15 +73,6 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
             />
         </View>
         <View style={styles.form}>
-            <Text style={styles.formtitle}>人数</Text>
-            <ButtonGroup
-                buttons={numbers}
-                containerStyle={styles.buttongroup}
-                selectedIndex={number}
-                onPress={PlessNumber}
-            />
-            {number !== undefined &&
-            <>
                 <Text style={styles.formtitle}>時間</Text>
                 <ButtonGroup
                     buttons={buttons}
@@ -97,13 +80,11 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
                     selectedIndex={time}
                     onPress={PlessTime}
                 />
-            </>
-            }
             {time !== undefined &&
                 <Text style={styles.total}>合計金額{total}円(税込)</Text>
             }
 
-            {(number !== undefined) && (time !== undefined) ?
+            {(time !== undefined) ?
                 <Movebutton
                     style={styles.button}
                     title="お会計へ"
