@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import {StyleSheet, View, Text, Image, TextStyle, StyleProp} from "react-native";
+import {StyleSheet, View, Text, Image} from "react-native";
 import { ButtonGroup } from 'react-native-elements';
 import Backbutton from "../../components/Backbutton";
 import Movebutton from "../../components/Movebutton";

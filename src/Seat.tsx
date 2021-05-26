@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import {StyleSheet, View, Text, Image} from "react-native";
-import { Button, Card } from 'react-native-elements';
+import { Card } from 'react-native-elements';
 import Movebutton from "../components/Movebutton";
 
 
