@@ -19,8 +19,7 @@ const styles = StyleSheet.create({
 });
 
 export default function Accounting (date: { navigation: { navigate: (arg0: string) => void; }; route: { params: { total: number; seattype: string }; } }) {
-    const {total} = date.route.params;
-    const {seattype} = date.route.params;
+    const {total, seattype} = date.route.params;
 
     return(
     <View style={styles.container}>

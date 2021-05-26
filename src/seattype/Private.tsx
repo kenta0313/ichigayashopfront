@@ -84,7 +84,7 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
                 <Text style={styles.total}>合計金額{total}円(税込)</Text>
             }
 
-            {(time !== undefined) ?
+            {time !== undefined ?
                 <Movebutton
                     style={styles.button}
                     title="お会計へ"
