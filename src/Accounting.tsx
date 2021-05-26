@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: "center"
     },
-    title: {
+    seattype: {
         fontSize: 70,
         marginTop:150
     },
@@ -23,7 +23,7 @@ export default function Accounting (date: { navigation: { navigate: (arg0: strin
 
     return(
     <View style={styles.container}>
-        <Text  style={styles.title}>{seattype}</Text>
+        <Text  style={styles.seattype}>{seattype}</Text>
         <Text style={styles.total}>合計金額{total}円</Text>
         <Movebutton
             title="ホームへ"
