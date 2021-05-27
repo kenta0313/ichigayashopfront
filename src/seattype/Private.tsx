@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     }
 });
 
-const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分', '270分', '300分', '1日'];
-const image = require('../../public/image/テーブル席.jpg');
+const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分', '1日'];
+const image = require('../../public/image/個室席.jpg');
 
 export default function Private (date: { navigation: { navigate: (arg0: string, arg1?: { total: number; seattype: string; } | undefined) => void; }; }) {
     const [time, setTime] = useState<number>();
@@ -54,7 +54,11 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
     const [total, setTotal] = useState(0);
     useEffect(() => {
         if((time !== undefined)){
-            return setTotal(((time + 1) * 300));
+            if(time === 8){
+                return setTotal(2500);
+            }else {
+                return setTotal(((time + 1) * 300));
+            }
         }
     })
 
@@ -63,9 +67,9 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
         <View style={styles.image}>
             <Image
                 source={image}
-                style={{ width: 400, height: 400}}
+                style={{ width: 400, height: 300}}
             />
-            <Text style={styles.seattext}>テーブル席(１～２人)</Text>
+            <Text style={styles.seattext}>個室席(１人)</Text>
             <Backbutton
                 onPress={() => {
                     date.navigation.navigate("席を選ぶ");

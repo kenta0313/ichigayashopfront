@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 });
 
 const numbers = ['1人', '2人']
-const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分', '270分', '300分', '1日'];
+const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分'];
 const image = require('../../public/image/テーブル席.jpg');
 
 export default function Table (date: { navigation: { navigate: (arg0: string, arg1?: { total: number; seattype: string; } | undefined) => void; }; }) {
@@ -62,7 +62,11 @@ export default function Table (date: { navigation: { navigate: (arg0: string, ar
     const [total, setTotal] = useState(0);
     useEffect(() => {
         if((number !== undefined) && (time !== undefined)){
-            return setTotal((number + 1) * ((time + 1) * 300));
+            if(number === 0){
+                return setTotal((time + 1) * 300)
+            }else {
+                return setTotal((time + 1) * 400);
+            }
         }
     })
 
@@ -71,7 +75,7 @@ export default function Table (date: { navigation: { navigate: (arg0: string, ar
         <View style={styles.image}>
             <Image
                 source={image}
-                style={{ width: 400, height: 400}}
+                style={{ width: 400, height: 300}}
             />
             <Text style={styles.seattext}>テーブル席(１～２人)</Text>
             <Backbutton

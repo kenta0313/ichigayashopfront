@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
     }
 });
 
-const image = require('../public/image/テーブル席.jpg');
+const table = require('../public/image/テーブル席.jpg');
+const privateimage = require('../public/image/個室席.jpg');
 
 export default function Seat (date: { navigation: { navigate: (arg0: string) => void; };}) {
     return(
@@ -33,10 +34,10 @@ export default function Seat (date: { navigation: { navigate: (arg0: string) => 
             <Card>
                 <Card.Title style={styles.cardtitle}>テーブル席（1～2人）</Card.Title>
                 <Image
-                    source={image}
-                    style={{ width: 400, height: 350}}
+                    source={table}
+                    style={{ width: 400, height: 300}}
                 />
-                <Text style={styles.cardtitle}>600円(税込)/時間</Text>
+                <Text style={styles.cardtitle}>30分/300~400円(税込)</Text>
                 <Movebutton
                     title="テーブル席"
                     onPress={() => {
@@ -49,10 +50,10 @@ export default function Seat (date: { navigation: { navigate: (arg0: string) => 
         <Card>
                 <Card.Title style={styles.cardtitle}>個室席（1人）</Card.Title>
                 <Image
-                    source={image}
-                    style={{ width: 400, height: 350}}
+                    source={privateimage}
+                    style={{ width: 400, height: 300}}
                 />
-                <Text　style={styles.cardtitle}>600円(税込)/時間</Text>
+                <Text　style={styles.cardtitle}>30分/300円(税込)</Text>
                 <Movebutton
                     title="個室席"
                     onPress={() => {
