@@ -41,10 +41,10 @@ const styles = StyleSheet.create({
 });
 
 const numbers = ['1人', '2人']
-const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分'];
+const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分']
 const image = require('../../public/image/テーブル席.jpg');
 
-export default function Table (date: { navigation: { navigate: (arg0: string, arg1?: { total: number; seattype: string; } | undefined) => void; }; }) {
+export default function Table (date: { navigation: { navigate: (arg0: string, arg1?: { total: number; seattype: string; time: string; nowtime: string, untiltime: string, xuntilhour: number} | undefined) => void; }; }) {
     const [number, setNumber] = useState<number>();
     const PlessNumber = useCallback(
         (index) => {
@@ -69,6 +69,18 @@ export default function Table (date: { navigation: { navigate: (arg0: string, ar
             }
         }
     })
+    const aboutnow = new Date(Math.ceil(new Date().getTime()/1000/60/5)*1000*60*5);
+    const hour = aboutnow.getHours().toString().padStart(2, '0');
+    const minutes = aboutnow.getMinutes().toString().padStart(2, '0');
+    const nowtime = `${hour}:${minutes}`;
+    const until = new Date(aboutnow.getTime());
+    if(time !== undefined){
+        until.setMinutes(until.getMinutes() + (time + 1) * 30);
+    }
+    const xuntilhour = until.getHours();
+    const untilhour = until.getHours().toString().padStart(2, '0');
+    const untilminutes = until.getMinutes().toString().padStart(2, '0');
+    const untiltime = `${untilhour}:${untilminutes}`;
 
     return(
     <View style={styles.container}>
@@ -115,7 +127,11 @@ export default function Table (date: { navigation: { navigate: (arg0: string, ar
                         date.navigation.navigate("お会計",
                             {
                                 total: total,
-                                seattype: 'テーブル席'
+                                seattype: 'テーブル席',
+                                nowtime: nowtime,
+                                untiltime: untiltime,
+                                time: buttons[time],
+                                xuntilhour: xuntilhour
                             }
                         );
                     }}
