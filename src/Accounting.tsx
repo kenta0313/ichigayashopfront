@@ -27,7 +27,15 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function Accounting (date: { navigation: { navigate: (arg0: string) => void; }; route: { params: { total: number; seattype: string; nowtime: string; untiltime: string; time: string, xuntilhour:number }; } }) {
+interface paramsprops {
+    total: number;
+    seattype: string;
+    nowtime: string;
+    untiltime: string;
+    time: string,
+    xuntilhour:number
+}
+export default function Accounting (date: { navigation: { navigate: (arg0: string) => void; }; route: { params: paramsprops; } }) {
     const {total, seattype,nowtime, untiltime, time, xuntilhour} = date.route.params;
 
     return(
@@ -35,12 +43,13 @@ export default function Accounting (date: { navigation: { navigate: (arg0: strin
         <Text  style={styles.seattype}>{seattype}</Text>
         <Text style={styles.total}>金額{total}円</Text>
         {(xuntilhour >= 18 || time === "一日")?
-        <Text style={styles.time}>
-            {nowtime}~18:00({time})
-        </Text>:
-        <Text style={styles.time}>
-            {nowtime}~{untiltime}({time})
-        </Text>}
+            <Text style={styles.time}>
+                {nowtime}~18:00({time})
+            </Text>:
+            <Text style={styles.time}>
+                {nowtime}~{untiltime}({time})
+            </Text>
+        }
         <Text　style={styles.memo}>スタッフにお申し付けください</Text>
 
         <Homebutton

@@ -40,11 +40,19 @@ const styles = StyleSheet.create({
     }
 });
 
+interface arg1props {
+    total: number;
+    seattype: string;
+    time: string;
+    nowtime: string;
+    untiltime: string;
+    xuntilhour: number;
+}
 const numbers = ['1人', '2人']
 const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分']
 const image = require('../../public/image/テーブル席.jpg');
 
-export default function Table (date: { navigation: { navigate: (arg0: string, arg1?: { total: number; seattype: string; time: string; nowtime: string, untiltime: string, xuntilhour: number} | undefined) => void; }; }) {
+export default function Table (date: { navigation: { navigate: (arg0: string, arg1?: arg1props | undefined) => void; }; }) {
     const [number, setNumber] = useState<number>();
     const PlessNumber = useCallback(
         (index) => {
@@ -107,11 +115,11 @@ export default function Table (date: { navigation: { navigate: (arg0: string, ar
             {number !== undefined &&
             <>
                 <Text style={styles.formtitle}>時間</Text>
-                <ButtonGroup
-                    buttons={buttons}
-                    containerStyle={styles.buttongroup}
-                    selectedIndex={time}
-                    onPress={PlessTime}
+                    <ButtonGroup
+                        buttons={buttons}
+                        containerStyle={styles.buttongroup}
+                        selectedIndex={time}
+                        onPress={PlessTime}
                 />
             </>
             }

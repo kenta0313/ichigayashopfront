@@ -40,10 +40,18 @@ const styles = StyleSheet.create({
     }
 });
 
+interface arg1props {
+    total: number;
+    seattype: string;
+    time: string;
+    nowtime: string;
+    untiltime: string;
+    xuntilhour: number;
+}
 const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分', '1日'];
 const image = require('../../public/image/個室席.jpg');
 
-export default function Private (date: { navigation: { navigate: (arg0: string, arg1?: { total: number; seattype: string; time: string; nowtime: string, untiltime: string, xuntilhour: number} | undefined) => void; }; }) {
+export default function Private (date: { navigation: { navigate: (arg0: string, arg1?: arg1props | undefined) => void; }; }) {
     const [time, setTime] = useState<number>();
     const PlessTime = useCallback(
         (index) => {
