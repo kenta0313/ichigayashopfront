@@ -42,7 +42,7 @@ export default function Accounting (date: { navigation: { navigate: (arg0: strin
     <View style={styles.container}>
         <Text  style={styles.seattype}>{seattype}</Text>
         <Text style={styles.total}>金額{total}円</Text>
-        {(xuntilhour >= 18 || time === "一日")?
+        {(xuntilhour >= 18 || time === "1日")?
             <Text style={styles.time}>
                 {nowtime}~18:00({time})
             </Text>:

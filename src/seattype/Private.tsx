@@ -83,6 +83,11 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
     const untilminutes = until.getMinutes().toString().padStart(2, '0');
     const untiltime = `${untilhour}:${untilminutes}`;
 
+    const CLOSING_TIME = 18;
+    const filter = new Date(aboutnow.getTime());
+    const filterhour = filter.getHours();
+    const filterminutes = filter.getMinutes();
+    const filternumber = filterminutes >= 30 ? (CLOSING_TIME - filterhour) * 2 - 2 : (CLOSING_TIME - filterhour) * 2 - 1 ;
     return(
     <View style={styles.container}>
         <View style={styles.image}>
@@ -100,7 +105,7 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
         <View style={styles.form}>
                 <Text style={styles.formtitle}>時間</Text>
                 <ButtonGroup
-                    buttons={buttons}
+                    buttons={buttons.filter((_button, index) => index <= filternumber)}
                     containerStyle={styles.buttongroup}
                     selectedIndex={time}
                     onPress={PlessTime}
