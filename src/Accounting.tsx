@@ -37,6 +37,7 @@ interface paramsprops {
 }
 export default function Accounting (date: { navigation: { navigate: (arg0: string) => void; }; route: { params: paramsprops; } }) {
     const {total, seattype,nowtime, untiltime, time, xuntilhour} = date.route.params;
+    const CLOSING_TIME = '18:00';
 
     return(
     <View style={styles.container}>
@@ -44,7 +45,7 @@ export default function Accounting (date: { navigation: { navigate: (arg0: strin
         <Text style={styles.total}>金額{total}円</Text>
         {(xuntilhour >= 18 || time === "1日")?
             <Text style={styles.time}>
-                {nowtime}~18:00({time})
+                {nowtime}~{CLOSING_TIME}({time})
             </Text>:
             <Text style={styles.time}>
                 {nowtime}~{untiltime}({time})
