@@ -65,7 +65,10 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
         if((time !== undefined)){
             if(time === 8){
                 return setTotal(2500);
-            }else {
+            }else if(time === 4){
+                return setTotal(1500);
+            }else
+            {
                 return setTotal(((time + 1) * 300));
             }
         }

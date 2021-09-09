@@ -37,7 +37,7 @@ export default function Seat (date: { navigation: { navigate: (arg0: string) => 
                     source={table}
                     style={{ width: 400, height: 300}}
                 />
-                <Text style={styles.cardtitle}>30分/300~400円(税込)</Text>
+                <Text style={styles.cardtitle}>30分 300(税込)/人</Text>
                 <Movebutton
                     title="テーブル席"
                     onPress={() => {
@@ -53,7 +53,7 @@ export default function Seat (date: { navigation: { navigate: (arg0: string) => 
                     source={privateimage}
                     style={{ width: 400, height: 300}}
                 />
-                <Text　style={styles.cardtitle}>30分/300円(税込)</Text>
+                <Text　style={styles.cardtitle}>30分 300円(税込)</Text>
                 <Movebutton
                     title="個室席"
                     onPress={() => {

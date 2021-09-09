@@ -73,7 +73,7 @@ export default function Table (date: { navigation: { navigate: (arg0: string, ar
             if(number === 0){
                 return setTotal((time + 1) * 300)
             }else {
-                return setTotal((time + 1) * 400);
+                return setTotal((time + 1) * 600);
             }
         }
     })
