@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     image: {
-        flex: 5,
+        flex: 4,
         alignItems: 'center'
     },
     form: {
-        flex: 7,
+        flex: 8,
     },
     formtitle: {
         fontSize: 40,
@@ -48,7 +48,7 @@ interface arg1props {
     untiltime: string;
     xuntilhour: number;
 }
-const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分', '1日'];
+const buttons =['30分', '60分', '90分', '120分', '150分','180分', '210分', '240分','270分', '300分','1日']
 const image = require('../../public/image/個室席.jpg');
 
 export default function Private (date: { navigation: { navigate: (arg0: string, arg1?: arg1props | undefined) => void; }; }) {
@@ -63,10 +63,14 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
     const [total, setTotal] = useState(0);
     useEffect(() => {
         if((time !== undefined)){
-            if(time === 8){
+            if(time === 10){
                 return setTotal(2500);
-            }else if(time === 4){
+            }else if(time === 9){
+                return setTotal(2000);
+            }else if(time === 5){
                 return setTotal(1500);
+            }else if(time > 5 && time < 9){
+                return setTotal(1500 + (time - 5) * 130);
             }else
             {
                 return setTotal(((time + 1) * 300));
@@ -96,9 +100,9 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
         <View style={styles.image}>
             <Image
                 source={image}
-                style={{ width: 400, height: 300}}
+                style={{ width: 300, height: 225}}
             />
-            <Text style={styles.seattext}>個室席(１人)</Text>
+            <Text style={styles.seattext}>個室席</Text>
             <Backbutton
                 onPress={() => {
                     date.navigation.navigate("席を選ぶ");
@@ -108,7 +112,7 @@ export default function Private (date: { navigation: { navigate: (arg0: string, 
         <View style={styles.form}>
                 <Text style={styles.formtitle}>時間</Text>
                 <ButtonGroup
-                    buttons={buttons.filter((_button, index) => index <= filternumber)}
+                    buttons={buttons}
                     containerStyle={styles.buttongroup}
                     selectedIndex={time}
                     onPress={PlessTime}

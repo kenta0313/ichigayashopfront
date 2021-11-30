@@ -32,7 +32,7 @@ export default function Seat (date: { navigation: { navigate: (arg0: string) => 
     <View style={styles.container}>
         <View style={styles.tableseat}>
             <Card>
-                <Card.Title style={styles.cardtitle}>テーブル席（1～2人）</Card.Title>
+                <Card.Title style={styles.cardtitle}>テーブル席</Card.Title>
                 <Image
                     source={table}
                     style={{ width: 400, height: 300}}
@@ -48,12 +48,12 @@ export default function Seat (date: { navigation: { navigate: (arg0: string) => 
         </View>
         <View style={styles.privateseat}>
         <Card>
-                <Card.Title style={styles.cardtitle}>個室席（1人）</Card.Title>
+                <Card.Title style={styles.cardtitle}>個室席</Card.Title>
                 <Image
                     source={privateimage}
                     style={{ width: 400, height: 300}}
                 />
-                <Text　style={styles.cardtitle}>30分 300円(税込)</Text>
+                <Text　style={styles.cardtitle}>30分 300円(税込)/人</Text>
                 <Movebutton
                     title="個室席"
                     onPress={() => {
