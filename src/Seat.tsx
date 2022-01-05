@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 });
 
 const table = require('../public/image/テーブル席.jpg');
-const privateimage = require('../public/image/個室席.jpg');
+const privateimage = require('../public/image/seat_1.jpg');
 
 export default function Seat (date: { navigation: { navigate: (arg0: string) => void; };}) {
     return(
